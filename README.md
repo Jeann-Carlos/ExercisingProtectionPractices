@@ -1,1 +1,15 @@
 # ExercisingProtectionPractices
+This lab will introduce you to server-side sandboxing and privilege separation in the context of the straightforward Python online application "zoobar," which allows users to exchange "zoobars" (credits) with one another. Privilege separation's fundamental objective is to make sure that if an attacker compromises one component of an application, they don't compromise the other components as well. The zookws web server utilized in the prior lab is a replica of the OKWS web server, which was covered in lecture, to assist you with privilege-separating this application. In this lab, you'll build up a privilege-separated web server, go through any security holes, and divide the application code into lower-privileged parts to lessen the impact of any potential flaws.
+
+Select the interface that your authentication service will offer (i.e., what functions it will run for clients). Decide what needs to run in the authentication service and what can run in the client by examining the code in login.py and auth.py (i.e., be part of the rest of the zoobar code). Keep in mind that you want to safeguard both tokens and passwords. In the file zoobar/auth client.py, we have initial RPC stubs for the client.
+Create a new user authentication service called auth svc that is similar to echo-server.py. You should alter the zoobar/auth-server.py file we've given for you as a starting point for this. The functions already present in auth.py should be utilized when implementing this service.
+
+By keeping a hash of the user's password—that is, the outcome of applying a hash function to the password—instead of the password itself, hashing defends against this attack. An adversary won't be able to get the user's password directly if the hash function is hard to reverse (i.e., is a cryptographically secure hash). A server can still verify that a user entered the proper password during login by hashing the password and comparing the result to the value that was previously saved.
+
+
+
+You will learn about buffer overflow vulnerabilities in Lab 1 in the context of the zookws web server. Users can transfer "zoobars" (credits) to one other using the straightforward python web application zoobar, which is executed on the zookws web server. The zookws web server code has buffer overflows that may be found and exploited to remotely upload code to the server and get beyond non-executable stack protection. Other security features of the zoobar and zookws infrastructure are examined in later labs.
+
+Each lab requires you to learn a new programming language or some other piece of infrastructure. For example, in this lab you must become intimately familiar with certain aspects of the C language, x86 assembly language, gdb, etc.
+
+To comprehend assaults and defenses in real-world scenarios, one must have a thorough understanding of a variety of infrastructure components. Security flaws frequently appear in unusual contexts, necessitating in-depth knowledge in order to create exploits and create defenses for such situations.
